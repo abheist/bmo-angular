@@ -1,16 +1,27 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h2>Log In</h2>
-    <p>Please login to continue</p>
-    <label>
-        Username
-        <input type="text" placeholder="Username" formControlName="username" required>
-    </label>
-    <label>
-        Password
-        <input type="password" placeholder="Password" formControlName="password" required>
-    </label>
-    <button>Login</button>
-</form>
-<div>
-    Not yet registered? <a routerLink="/register">Register Now</a>
+<div fxLayout="row" fxLayoutAlign="center center" fxFlexFill style="background-color: #ececec;">
+    <mat-card fxFlex="30">
+        <mat-card-title-group>
+            <mat-card-title>BMO Finance App</mat-card-title>
+            <mat-card-subtitle>Please <span class="mat-body-2">Login</span> to continue</mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput placeholder="abhishek" formControlName="username" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="ahsJSw@j1m#2" formControlName="password" required>
+                </mat-form-field>
+                <button mat-button color="primary" mat-raised-button fxFlex="100">Login</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button routerLink="/register" mat-button color="primary" fxFlex="100">
+                Not yet registered? Register Now
+                <mat-icon class="mat-18">arrow_right_alt</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>
