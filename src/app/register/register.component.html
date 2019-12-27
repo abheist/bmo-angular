@@ -1,20 +1,31 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h2>Sign Up</h2>
-    <p>Please enter your details</p>
-    <label>
-        Email
-        <input type="text" placeholder="Email" formControlName="email" required>
-    </label>
-    <label>
-        Name
-        <input type="text" placeholder="Name" formControlName="name" required>
-    </label>
-    <label>
-        Password
-        <input type="password" placeholder="Password" formControlName="password" required>
-    </label>
-    <button>Register</button>
-</form>
-<div>
-    Already registered? <a routerLink="/login">Login Here!</a>
+<div fxLayout="row" fxLayoutAlign="center center" fxFlexFill style="background-color: #ececec;">
+    <mat-card fxFlex="30">
+        <mat-card-title-group>
+            <mat-card-title>BMO Finance App</mat-card-title>
+            <mat-card-subtitle>Please enter your details to <span class="mat-body-2">SignUp</span></mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="row wrap" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Full Name</mat-label>
+                    <input type="text" matInput placeholder="Name" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Email" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Password" formControlName="password" required>
+                </mat-form-field>
+                <button mat-button color="primary" mat-raised-button fxFlex="100">SignUp</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button routerLink="/login" mat-button color="primary" fxFlex="100">
+                Already registered? Login here
+                <mat-icon class="mat-18">arrow_right_alt</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>
