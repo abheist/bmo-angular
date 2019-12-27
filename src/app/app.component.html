@@ -2,4 +2,16 @@
     <span>BMO Finance App</span>
 </mat-toolbar>
 
+<div *ngIf="authService.isLoggedIn | async as isLoggedIn">
+  <div>
+    <a routerLink="/">MyApp</a>
+  </div>
+  <div>
+    <ul>
+      <li><a routerLink="/profile">Profile</a></li>
+      <li><a (click)="onLogout()">Logout</a></li>
+    </ul>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

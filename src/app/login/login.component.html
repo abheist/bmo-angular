@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Log In</h2>
+    <p>Please login to continue</p>
+    <label>
+        Username
+        <input type="text" placeholder="Username" formControlName="username" required>
+    </label>
+    <label>
+        Password
+        <input type="password" placeholder="Password" formControlName="password" required>
+    </label>
+    <button>Login</button>
+</form>
+<div>
+    Not yet registered? <a routerLink="/register">Register Now</a>
+</div>

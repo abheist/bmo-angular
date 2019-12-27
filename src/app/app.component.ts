@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bmo-angular';
+
+  constructor(private authService: AuthService) { }
+
+  onLogout() {
+    this.authService.logout();
+  }
 }
