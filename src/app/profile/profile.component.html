@@ -1,4 +1,18 @@
-<p>{{name}}</p>
-<p>{{email}}</p>
-
-<button (click)="logout()">Logout</button>
+<mat-toolbar color="primary">
+    <span>BMO Finance App</span>
+    <span fxFlex></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="padding-10-20">
+            <div class="mat-body-2">{{name}}</div>
+            <div class="mat-caption">{{email}}</div>
+        </div>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
