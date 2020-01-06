@@ -13,6 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { AuthGuardService } from './auth-guard.service';
+import { LoginGuardService } from './login-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService, LoginGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

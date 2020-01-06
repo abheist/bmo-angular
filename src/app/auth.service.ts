@@ -25,6 +25,10 @@ export class AuthService {
     }
   }
 
+  public isAuthenticated(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
   login(user) {
     if (user.username !== '' && user.password !== '') {
       return this.server.request('POST', '/api/v1/rest-auth/login/', {
