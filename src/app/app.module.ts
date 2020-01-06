@@ -12,13 +12,15 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,

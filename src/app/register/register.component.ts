@@ -34,10 +34,11 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log('Form valid');
-    const request = this.server.request('POST', '/register', {
+    const request = this.server.request('POST', '/api/v1/rest-auth/registration/', {
+      username: this.form.get('name').value,
       email: this.form.get('email').value,
-      name: this.form.get('name').value,
-      password: this.form.get('password').value
+      password1: this.form.get('password').value,
+      password2: this.form.get('password').value
     });
 
     request.subscribe(() => {
