@@ -1,3 +1,21 @@
 .padding-10-20 {
     padding: 10px 20px;
 }
+
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-card-content-padding {
+    width: calc(100% + 32px);
+    margin: 0 -16px 16px -16px;
+}
