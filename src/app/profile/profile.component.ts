@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../server.service';
 import { AuthService } from '../auth.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 export interface TableDataStructure {
   id: number;
@@ -22,7 +24,11 @@ export class ProfileComponent implements OnInit {
   personalName: string;
   personalEmail: string;
 
-  constructor(private server: ServerService, private authService: AuthService) { }
+  constructor(
+    private server: ServerService,
+    private authService: AuthService,
+    public dialog: MatDialog
+  ) { }
 
   displayedColumns: string[] = ['id', 'username', 'first_name', 'last_name', 'email', 'is_active', 'is_staff'];
   dataSource: MatTableDataSource<TableDataStructure>;
@@ -39,6 +45,18 @@ export class ProfileComponent implements OnInit {
       if (data) {
         this.dataSource = data.results;
       }
+    });
+  }
+
+  editProfile(): void {
+    const dialogRef = this.dialog.open(EditprofileComponent, {
+      width: '720px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
     });
   }
 
