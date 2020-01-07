@@ -23,6 +23,7 @@ export interface TableDataStructure {
 export class ProfileComponent implements OnInit {
   personalName: string;
   personalEmail: string;
+  personalId: number;
 
   constructor(
     private server: ServerService,
@@ -38,20 +39,21 @@ export class ProfileComponent implements OnInit {
       if (user) {
         this.personalName = user.first_name + user.last_name;
         this.personalEmail = user.email;
+        this.personalId = user.pk;
       }
     });
 
-    this.server.request('GET', '/api/v1/users/').subscribe((data: any) => {
+    this.server.request('GET', '/api/v1/user/').subscribe((data: any) => {
       if (data) {
         this.dataSource = data.results;
       }
     });
   }
 
-  editProfile(): void {
+  editProfile(userId: number): void {
     const dialogRef = this.dialog.open(EditprofileComponent, {
       width: '720px',
-      data: {}
+      data: { userId }
     });
 
     dialogRef.afterClosed().subscribe(result => {

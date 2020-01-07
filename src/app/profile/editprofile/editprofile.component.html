@@ -1,11 +1,26 @@
-<h1 mat-dialog-title>Hi Abhishek</h1>
-<div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-    <mat-form-field>
-        <input matInput>
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button cdkFocusInitial>Ok</button>
-</div>
+<h1 mat-dialog-title>Edit Profile</h1>
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" #form="ngForm" fxLayout="row wrap" fxLayoutAlign="space-between center"
+        fxLayoutGap="16px grid">
+        <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button cdkFocusInitial color="primary">Submit</button>
+</mat-dialog-actions>
