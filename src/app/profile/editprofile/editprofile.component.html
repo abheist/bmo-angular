@@ -1,26 +1,26 @@
 <h1 mat-dialog-title>Edit Profile</h1>
 <mat-dialog-content>
-    <form (ngSubmit)="onSubmit()" #form="ngForm" fxLayout="row wrap" fxLayoutAlign="space-between center"
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between center"
         fxLayoutGap="16px grid">
         <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name">
+            <input matInput placeholder="First Name" formControlName="first_name">
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name">
+            <input matInput placeholder="Last Name" formControlName="last_name">
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email">
+            <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>Username</mat-label>
-            <input matInput placeholder="Username">
+            <input matInput placeholder="Username" formControlName="username">
         </mat-form-field>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button cdkFocusInitial color="primary">Submit</button>
+    <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Submit</button>
 </mat-dialog-actions>
