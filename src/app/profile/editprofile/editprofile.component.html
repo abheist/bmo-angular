@@ -5,18 +5,30 @@
         <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>First Name</mat-label>
             <input matInput placeholder="First Name" formControlName="first_name">
+            <mat-error *ngIf="form.controls.first_name.errors?.required && form.controls.first_name.touched">
+                *required
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>Last Name</mat-label>
             <input matInput placeholder="Last Name" formControlName="last_name">
+            <mat-error *ngIf="form.controls.last_name.errors?.required && form.controls.last_name.touched">
+                *required
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="form.controls.email.errors?.required && form.controls.email.touched">
+                *required
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>Username</mat-label>
             <input matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="form.controls.username.errors?.required && form.controls.username.touched">
+                *required
+            </mat-error>
         </mat-form-field>
     </form>
 </mat-dialog-content>

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServerService } from 'src/app/server.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 
 export interface UserId {
@@ -18,6 +19,7 @@ export class EditprofileComponent implements OnInit {
     public dialogRef: MatDialogRef<EditprofileComponent>,
     private server: ServerService,
     private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public userId: UserId
   ) { }
 
@@ -56,9 +58,11 @@ export class EditprofileComponent implements OnInit {
         this.form.value
       );
       submittedData.subscribe(responseData => {
-        console.log('Call is done and data is updated');
-        console.log(responseData);
         this.form.patchValue(responseData);
+        this.dialogRef.close();
+        this.snackBar.open('Successfully updated', '', {
+          duration: 2000,
+        });
       });
     }
   }
