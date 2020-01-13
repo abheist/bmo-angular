@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginGuardService } from './login-guard.service';
-import { EditprofileComponent } from './profile/editprofile/editprofile.component';
+import { EditaccountComponent } from './profile/editaccount/editaccount.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { EditprofileComponent } from './profile/editprofile/editprofile.componen
     LoginComponent,
     ProfileComponent,
     ConfirmEmailComponent,
-    EditprofileComponent
+    EditaccountComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +38,6 @@ import { EditprofileComponent } from './profile/editprofile/editprofile.componen
   ],
   providers: [AuthService, AuthGuardService, LoginGuardService],
   bootstrap: [AppComponent],
-  entryComponents: [EditprofileComponent],
+  entryComponents: [EditaccountComponent],
 })
 export class AppModule { }

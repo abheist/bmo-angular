@@ -9,14 +9,14 @@ export interface UserId {
   userId: number;
 }
 @Component({
-  selector: 'app-editprofile',
-  templateUrl: './editprofile.component.html',
-  styleUrls: ['./editprofile.component.scss']
+  selector: 'app-editaccount',
+  templateUrl: './editaccount.component.html',
+  styleUrls: ['./editaccount.component.scss']
 })
-export class EditprofileComponent implements OnInit {
+export class EditaccountComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<EditprofileComponent>,
+    public dialogRef: MatDialogRef<EditaccountComponent>,
     private server: ServerService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,

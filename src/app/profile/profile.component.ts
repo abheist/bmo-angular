@@ -3,7 +3,7 @@ import { ServerService } from '../server.service';
 import { AuthService } from '../auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material';
-import { EditprofileComponent } from './editprofile/editprofile.component';
+import { EditaccountComponent } from './editaccount/editaccount.component';
 
 export interface TableDataStructure {
   id: number;
@@ -62,7 +62,7 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile(userId: number): void {
-    const dialogRef = this.dialog.open(EditprofileComponent, {
+    const dialogRef = this.dialog.open(EditaccountComponent, {
       width: '720px',
       data: { userId }
     });
