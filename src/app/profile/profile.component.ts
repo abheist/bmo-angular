@@ -11,8 +11,8 @@ export interface TableDataStructure {
   first_name: string;
   last_name: string;
   email: string;
-  is_active: boolean;
-  is_staff: boolean;
+  user_type: boolean;
+  edit: any;
 }
 
 @Component({
@@ -24,6 +24,13 @@ export class ProfileComponent implements OnInit {
   personalName: string;
   personalEmail: string;
   personalId: number;
+  personalUserType: number;
+
+  USER_TYPE = {
+    1: 'user',
+    2: 'admin',
+    3: 'superuser'
+  };
 
   constructor(
     private server: ServerService,
@@ -31,7 +38,7 @@ export class ProfileComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  displayedColumns: string[] = ['id', 'username', 'first_name', 'last_name', 'email', 'is_active', 'is_staff'];
+  displayedColumns: string[] = ['id', 'username', 'first_name', 'last_name', 'email', 'user_type'];
   dataSource: MatTableDataSource<TableDataStructure>;
 
   ngOnInit() {
@@ -39,7 +46,11 @@ export class ProfileComponent implements OnInit {
       if (user) {
         this.personalName = user.first_name + user.last_name;
         this.personalEmail = user.email;
-        this.personalId = user.pk;
+        this.personalId = user.id;
+        this.personalUserType = user.user_type;
+      }
+      if (this.personalUserType > 1) {
+        this.displayedColumns.push('edit');
       }
     });
 
