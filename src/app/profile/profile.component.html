@@ -10,9 +10,9 @@
             <div class="mat-caption">{{personalEmail}}</div>
         </div>
         <mat-divider></mat-divider>
-        <button mat-menu-item (click)="editProfile(personalId)">
+        <button mat-menu-item (click)="editAccount(personalId)">
             <mat-icon>edit</mat-icon>
-            <span>Edit Profile</span>
+            <span>Edit Account</span>
         </button>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)="logout()">
@@ -59,7 +59,7 @@
                 <ng-container matColumnDef="edit">
                     <th mat-header-cell *matHeaderCellDef>Edit</th>
                     <td mat-cell *matCellDef="let element">
-                        <button mat-icon-button (click)="editProfile(element.id)">
+                        <button mat-icon-button (click)="editAccount(element.id)">
                             <mat-icon class="mat-18">edit</mat-icon>
                         </button>
                     </td>

@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  editProfile(userId: number): void {
+  editAccount(userId: number): void {
     const dialogRef = this.dialog.open(EditaccountComponent, {
       width: '720px',
       data: { userId }
