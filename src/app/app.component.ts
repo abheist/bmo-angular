@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'bmo-angular';
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   onLogout() {
     this.authService.logout();
