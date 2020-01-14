@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  displayedColumns: string[] = ['id', 'username', 'first_name', 'last_name', 'email', 'user_type'];
+  displayedColumns: string[] = ['username', 'first_name', 'last_name', 'email', 'user_type'];
   dataSource: MatTableDataSource<TableDataStructure>;
 
   ngOnInit() {
@@ -68,10 +68,7 @@ export class ProfileComponent implements OnInit {
       data: { userId }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
   editProfile(userId: number): void {
@@ -80,10 +77,7 @@ export class ProfileComponent implements OnInit {
       data: { userId }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
+    dialogRef.afterClosed().subscribe(result => { });
   }
 
   logout() {

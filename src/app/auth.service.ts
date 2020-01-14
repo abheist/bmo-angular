@@ -14,10 +14,8 @@ export class AuthService {
   }
 
   constructor(private router: Router, private server: ServerService) {
-    console.log('Auth Service');
     const userData = localStorage.getItem('user');
     if (userData) {
-      console.log('LoggedIn from memory');
       const user = JSON.parse(userData);
       this.key = user.key;
       this.server.setLoggedIn(true, this.key);

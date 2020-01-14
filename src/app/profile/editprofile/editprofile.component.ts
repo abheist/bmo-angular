@@ -1263,7 +1263,6 @@ export class EditprofileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.data);
     const data = {
       ...this.data,
       ...this.form.value
