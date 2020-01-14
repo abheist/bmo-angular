@@ -55,7 +55,7 @@ export class EditaccountComponent implements OnInit {
       const submittedData = this.server.request(
         'PUT',
         `/api/v1/user/${this.userId.userId}/`,
-        this.form.value
+        data
       );
       submittedData.subscribe(responseData => {
         this.form.patchValue(responseData);

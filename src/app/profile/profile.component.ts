@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material';
 import { EditaccountComponent } from './editaccount/editaccount.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 export interface TableDataStructure {
   id: number;
@@ -63,6 +64,18 @@ export class ProfileComponent implements OnInit {
 
   editAccount(userId: number): void {
     const dialogRef = this.dialog.open(EditaccountComponent, {
+      width: '720px',
+      data: { userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
+  editProfile(userId: number): void {
+    const dialogRef = this.dialog.open(EditprofileComponent, {
       width: '720px',
       data: { userId }
     });

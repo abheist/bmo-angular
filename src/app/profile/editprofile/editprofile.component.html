@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>Edit Profile</h1>
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between center"
+        fxLayoutGap="16px grid">
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.controls.dob.errors?.required && form.controls.dob.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" class="padded-box">
+            <label id="gender-radio-group-label" class="mat-body-2">Gender:</label>
+            <mat-radio-group aria-labelledby="gender-radio-group-label" fxFlex="100" formControlName="gender">
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-radio-button value="F">Female</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="form.controls.dob.errors?.required && form.controls.dob.touched">
+                *required
+            </mat-error>
+        </div>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Address line 1</mat-label>
+            <input matInput placeholder="Address line 1" formControlName="address1">
+            <mat-error *ngIf="form.controls.address1.errors?.required && form.controls.address1.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Address line 2</mat-label>
+            <input matInput placeholder="Address line 2" formControlName="address2">
+            <mat-error *ngIf="form.controls.address2.errors?.required && form.controls.address2.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Zip code</mat-label>
+            <input matInput placeholder="Zip code" formControlName="zip_code">
+            <mat-error *ngIf="form.controls.zip_code.errors?.required && form.controls.zip_code.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="form.controls.city.errors?.required && form.controls.city.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+                <mat-option *ngFor="let country of countries" [value]="country.code">
+                    {{country.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
+                *required
+            </mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button cdkFocusInitial color="primary" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

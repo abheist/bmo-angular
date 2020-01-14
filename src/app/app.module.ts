@@ -16,6 +16,8 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginGuardService } from './login-guard.service';
 import { EditaccountComponent } from './profile/editaccount/editaccount.component';
+import { EditprofileComponent } from './profile/editprofile/editprofile.component';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { EditaccountComponent } from './profile/editaccount/editaccount.componen
     LoginComponent,
     ProfileComponent,
     ConfirmEmailComponent,
-    EditaccountComponent
+    EditaccountComponent,
+    EditprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,10 +37,15 @@ import { EditaccountComponent } from './profile/editaccount/editaccount.componen
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [AuthService, AuthGuardService, LoginGuardService],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    LoginGuardService,
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [EditaccountComponent],
+  entryComponents: [EditaccountComponent, EditprofileComponent],
 })
 export class AppModule { }
