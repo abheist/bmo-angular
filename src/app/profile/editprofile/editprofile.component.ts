@@ -4,6 +4,7 @@ import { ServerService } from 'src/app/server.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatIconRegistry, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/helpers/format-datepicker';
+import { formatDate } from '@angular/common';
 
 
 export interface UserId {
@@ -13,10 +14,6 @@ export interface UserId {
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
   styleUrls: ['./editprofile.component.scss'],
-  providers: [
-    { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
-  ]
 })
 export class EditprofileComponent implements OnInit {
 
@@ -1270,7 +1267,8 @@ export class EditprofileComponent implements OnInit {
   onSubmit() {
     const data = {
       ...this.data,
-      ...this.form.value
+      ...this.form.value,
+      dob: formatDate(this.form.value.dob, 'yyyy-MM-dd', 'en')
     };
     if (this.form.valid) {
       const submittedData = this.server.request(
