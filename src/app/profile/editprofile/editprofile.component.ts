@@ -1282,6 +1282,10 @@ export class EditprofileComponent implements OnInit {
           duration: 2000,
         });
       });
+    } else {
+      this.snackBar.open('Fill the form correctly.', '', {
+        duration: 2000,
+      });
     }
   }
 }

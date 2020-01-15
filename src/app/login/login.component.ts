@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,11 @@ export class LoginComponent implements OnInit {
   public loginInvalid: boolean;
   private formSubmitAttempt: boolean;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -33,6 +37,9 @@ export class LoginComponent implements OnInit {
       }
     } else {
       this.formSubmitAttempt = true;
+      this.snackBar.open('Please fill the form correctly.', '', {
+        duration: 2000,
+      });
     }
   }
 }
