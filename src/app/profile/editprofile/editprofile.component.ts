@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServerService } from 'src/app/server.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar, MatIconRegistry } from '@angular/material';
+import { MatSnackBar, MatIconRegistry, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/helpers/format-datepicker';
 
 
 export interface UserId {
@@ -11,7 +12,11 @@ export interface UserId {
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
-  styleUrls: ['./editprofile.component.scss']
+  styleUrls: ['./editprofile.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: AppDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
+  ]
 })
 export class EditprofileComponent implements OnInit {
 
